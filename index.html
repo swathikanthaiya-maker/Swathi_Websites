@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swathi K - Python Developer & AI/ML Specialist</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #764ba2;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #764ba2;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: #764ba2;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 120px 0 80px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="rgba(255,255,255,0.1)" points="0,1000 1000,0 1000,1000"/></svg>');
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .hero .location {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.8;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #764ba2;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #764ba2;
+            transform: translateY(-2px);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Main Content */
+        main {
+            background: white;
+            position: relative;
+            z-index: 1;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #333;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(to right, #667eea, #764ba2);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transform: translateY(0);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(118, 75, 162, 0.3);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            display: block;
+        }
+
+        /* Services Section */
+        .services {
+            background: #f8f9ff;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border-top: 4px solid transparent;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            border-top-color: #764ba2;
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-header {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 1.5rem;
+        }
+
+        .project-header h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tech-tag {
+            background: #f0f0ff;
+            color: #764ba2;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        /* Skills Section */
+        .skills {
+            background: #f8f9ff;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-category h3 {
+            color: #764ba2;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #f0f0f0;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .skill-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        .contact-content {
+            text-align: center;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .contact-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .social-link {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: white;
+            color: #764ba2;
+            transform: translateY(-5px);
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .about-stats {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Swathi K</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Swathi K</h1>
+                <p class="subtitle">Python Developer | Data Science & AI/ML Specialist</p>
+                <p class="location">📍 Chennai, India | Transforming Data into Intelligence</p>
+                <div class="cta-buttons">
+                    <a href="#contact" class="btn btn-primary">Hire Me</a>
+                    <a href="#projects" class="btn btn-secondary">View Projects</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main>
+        <section id="about" class="about">
+            <div class="container">
+                <h2>About Me</h2>
+                <div class="about-content fade-in">
+                    <div class="about-stats">
+                        <div class="stat-card">
+                            <span class="stat-number">5+</span>
+                            Featured Projects
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">1</span>
+                            Published Research
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">2</span>
+                            Degrees Pursuing
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">10+</span>
+                            Certifications
+                        </div>
+                    </div>
+                    <div class="about-text">
+                        <p>I am a passionate <strong>Python Developer and AI/ML Enthusiast</strong> dedicated to transforming raw data into actionable intelligence. With extensive hands-on experience in data analysis, machine learning, full-stack development, and AI model deployment, I help businesses automate processes, unlock insights, and build intelligent applications.</p>
+                        
+                        <p>Currently pursuing a <strong>B.E. in Computer Science Engineering</strong> from Einstein College of Engineering and a <strong>BS in Data Science</strong> from IIT Madras, I combine strong academic foundations with practical industry experience.</p>
+
+                        <p>My expertise spans across Python development, advanced analytics, machine learning, deep learning, and AI-driven solutions. I'm committed to delivering high-quality, innovative solutions that drive business growth and operational efficiency.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="services">
+            <div class="container">
+                <h2>Services I Offer</h2>
+                <div class="services-grid fade-in">
+                    <div class="service-card">
+                        <div class="service-icon">🐍</div>
+                        <h3>Python Development</h3>
+                        <p>Custom scripts, automation tools, APIs, web scraping solutions, and full-stack Flask/Django applications tailored to your business needs.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">📊</div>
+                        <h3>Data Analysis & Visualization</h3>
+                        <p>Complete data pipeline solutions including cleaning, preprocessing, analysis, and interactive dashboards using Excel, Power BI, Matplotlib, and Pandas.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🤖</div>
+                        <h3>Machine Learning Projects</h3>
+                        <p>End-to-end ML solutions including predictive modeling, classification, clustering, recommendation systems, and model deployment.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🧠</div>
+                        <h3>Deep Learning & AI</h3>
+                        <p>Advanced AI solutions including computer vision, NLP, custom neural network training with TensorFlow and PyTorch for complex business problems.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🔬</div>
+                        <h3>Research-based Solutions</h3>
+                        <p>Cutting-edge AI implementations using LLMs, RAG systems, embeddings, and intelligent automation for next-generation business solutions.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">☁️</div>
+                        <h3>Cloud & Deployment</h3>
+                        <p>Scalable cloud solutions using AWS, model deployment, API development, and integration services for production-ready applications.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="projects">
+            <div class="container">
+                <h2>Featured Projects</h2>
+                <div class="projects-grid fade-in">
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3>🦅 Automated Bird Species Identification</h3>
+                            <p>Audio Signal Processing & ML Classification</p>
+                        </div>
+                        <div class="project-content">
+                            <p>Developed an intelligent system to classify bird species from audio signals using advanced machine learning techniques and signal processing algorithms.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Machine Learning</span>
+                                <span class="tech-tag">Audio Processing</span>
+                                <span class="tech-tag">Classification</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3>🦺 PPE Compliance Monitoring</h3>
+                            <p>AI-Powered Safety Vision System</p>
+                        </div>
+                        <div class="project-content">
+                            <p>Built an intelligent computer vision system to monitor and ensure Personal Protective Equipment compliance on construction sites, enhancing worker safety.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Computer Vision</span>
+                                <span class="tech-tag">Deep Learning</span>
+                                <span class="tech-tag">Safety Monitoring</span>
+                                <span class="tech-tag">Real-time Processing</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3>🛣️ Advanced Pothole Detection</h3>
+                            <p>Computer Vision & Repair Recommendation</p>
+                        </div>
+                        <div class="project-content">
+                            <p>Created a sophisticated computer vision model to identify road potholes and provide intelligent repair recommendations for infrastructure maintenance.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Computer Vision</span>
+                                <span class="tech-tag">Object Detection</span>
+                                <span class="tech-tag">Infrastructure</span>
+                                <span class="tech-tag">Recommendation System</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3>🍾 AI Quality Inspection System</h3>
+                            <p>Published Research - IJISRT 2025</p>
+                        </div>
+                        <div class="project-content">
+                            <p><strong>Published Research:</strong> Implemented YOLOv8-YOLOv11 models for detecting manufacturing defects in beverage bottles, achieving 78% accuracy in industrial quality control.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">YOLOv8-v11</span>
+                                <span class="tech-tag">Quality Control</span>
+                                <span class="tech-tag">Manufacturing</span>
+                                <span class="tech-tag">Research Publication</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3>💼 Placement Portal Web App</h3>
+                            <p>Mr. Cooper Internship Project</p>
+                        </div>
+                        <div class="project-content">
+                            <p>Designed and developed a scalable placement portal web application with integrated backend-frontend services, featuring collaborative development workflows.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Full-Stack Development</span>
+                                <span class="tech-tag">Web Applications</span>
+                                <span class="tech-tag">GitHub Collaboration</span>
+                                <span class="tech-tag">Scalable Architecture</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="skills">
+            <div class="container">
+                <h2>Technical Skills</h2>
+                <div class="skills-grid fade-in">
+                    <div class="skill-category">
+                        <h3>Programming Languages</h3>
+                        <ul class="skill-list">
+                            <li>Python (Advanced)</li>
+                            <li>SQL (Database Management)</li>
+                            <li>Java (Object-Oriented Programming)</li>
+                            <li>HTML/CSS (Web Development)</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3>Data Science Tools</h3>
+                        <ul class="skill-list">
+                            <li>NumPy (Numerical Computing)</li>
+                            <li>Pandas (Data Manipulation)</li>
+                            <li>Matplotlib (Data Visualization)</li>
+                            <li>Power BI (Business Intelligence)</li>
+                            <li>Excel (Advanced Analytics)</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3>ML/DL Frameworks</h3>
+                        <ul class="skill-list">
+                            <li>Scikit-learn (Machine Learning)</li>
+                            <li>TensorFlow (Deep Learning)</li>
+                            <li>PyTorch (Neural Networks)</li>
+                            <li>YOLOv8-v11 (Object Detection)</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3>AI Technologies</h3>
+                        <ul class="skill-list">
+                            <li>Large Language Models (LLMs)</li>
+                            <li>RAG (Retrieval Augmented Generation)</li>
+                            <li>Embeddings & Vector Databases</li>
+                            <li>Prompt Engineering</li>
+                            <li>Computer Vision</li>
+                            <li>Natural Language Processing</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3>Web & Cloud Technologies</h3>
+                        <ul class="skill-list">
+                            <li>Flask/Django (Web Frameworks)</li>
+                            <li>AWS (Cloud Computing)</li>
+                            <li>GitHub (Version Control)</li>
+                            <li>API Development</li>
+                            <li>Model Deployment</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3>Certifications</h3>
+                        <ul class="skill-list">
+                            <li>Microsoft Azure Data Scientist Associate</li>
+                            <li>AI & Machine Learning - UpGrad</li>
+                            <li>Data Science & Analytics - UpGrad</li>
+                            <li>Java, HTML, Python Certified</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="container">
+                <div class="contact-content fade-in">
+                    <h2>Let's Work Together</h2>
+                    <p>Ready to transform your data into actionable insights? Let's discuss your project and create intelligent solutions that drive your business forward.</p>
+                    
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon">📧</div>
+                            <h3>Email</h3>
+                            <p>swathi.kanthaiya@gmail.com</p>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📞</div>
+                            <h3>Phone</h3>
+                            <p>+91 8438594486</p>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📍</div>
+                            <h3>Location</h3>
+                            <p>Chennai, Tamil Nadu, India</p>
+                        </div>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="#" class="social-link">💼</a>
+                        <a href="#" class="social-link">⚡</a>
+                        <a href="#" class="social-link">🌐</a>
+                    </div>
+
+                    <div style="margin-top: 3rem;">
+                        <a href="mailto:swathi.kanthaiya@gmail.com" class="btn btn-primary">Get In Touch</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Swathi K. All rights reserved. | Turning Data into Intelligence</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.15)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            }
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add some interactive effects
+        document.querySelectorAll('.service-card, .project-card, .stat-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Dynamic typing effect for hero section
+        const subtitle = document.querySelector('.hero .subtitle');
+        const text = 'Python Developer | Data Science & AI/ML Specialist';
+        let index = 0;
+
+        function typeWriter() {
+            if (index < text.length) {
+                subtitle.textContent = text.slice(0, index + 1);
+                index++;
+                setTimeout(typeWriter, 50);
+            }
+        }
+
+        // Start typing effect after page load
+        setTimeout(() => {
+            subtitle.textContent = '';
+            typeWriter();
+        }, 1000);
+    </script>
+</body>
+</html>
